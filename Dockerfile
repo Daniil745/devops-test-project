@@ -41,6 +41,6 @@ USER appuser
 EXPOSE 5000
 
 HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
-    CMD curl -fsS http://localhost:5000/health || exit 1
+    CMD curl -fsS http://your_ip:5000/health || exit 1
 
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--workers", "2", "--threads", "2", "--access-logfile", "-", "--error-logfile", "-", "app:app"]
